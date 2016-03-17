@@ -1,0 +1,21 @@
+{
+  "ecmaVersion": 6,
+  "libs": [
+    "browser"
+  ],
+  "loadEagerly": [
+    "/Users/shouda/Node/color-hwb-viewer/src/**/*.js",
+    "/Users/shouda/Node/color-hwb-viewer/src/**/*.jsx"
+  ],
+  "dontLoad": [
+  ],
+  "plugins": {
+    "complete_strings": {},
+    "node": {},
+    "modules": {},
+    "es_modules": {},
+    "doc_comment": {
+      "fullDocs": true
+    }
+  }
+}

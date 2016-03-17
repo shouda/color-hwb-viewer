@@ -1,0 +1,102 @@
+/* normalize.css */
+@import 'normalize.css';
+
+/* Basscss Modules */
+/* http://www.basscss.com */
+@import 'basscss-align';
+@import 'basscss-border';
+/*@import 'basscss-flexbox';*/
+@import 'basscss-grid';
+@import 'basscss-hide';
+@import 'basscss-layout';
+@import 'basscss-margin';
+@import 'basscss-padding';
+@import 'basscss-position';
+@import 'basscss-type-scale';
+@import 'basscss-typography';
+
+
+/* Optional Modules (not included in Basscss by default) */
+/* https://github.com/basscss/addons */
+/*@import 'basscss-responsive-margin';*/
+/*@import 'basscss-responsive-padding';*/
+/*@import 'basscss-forms';*/
+@import 'basscss-btn';
+@import 'basscss-btn-outline';
+@import 'basscss-btn-primary';
+@import 'basscss-btn-sizes';
+/*@import 'basscss-colors';*/
+@import 'basscss-background-colors';
+/*@import 'basscss-background-images';*/
+/*@import 'basscss-border-colors';*/
+/*@import 'basscss-darken';*/
+/*@import 'basscss-lighten';*/
+/*@import 'basscss-input-range';*/
+/*@import 'basscss-progress';*/
+/*@import 'basscss-all';*/
+/*@import 'basscss-media-object';*/
+/*@import 'basscss-highlight';*/
+/*@import 'basscss-highlight-dark';*/
+
+
+
+/* Example custom file import */
+/*
+@import './color/borders';
+*/
+
+
+/* Default media queries */
+/*
+@custom-media --breakpoint-sm (min-width: 40em);
+@custom-media --breakpoint-md (min-width: 52em);
+@custom-media --breakpoint-lg (min-width: 64em);
+*/
+
+
+/* Default properties */
+/*
+:root {
+
+  --line-height-1: 1;
+  --line-height-2: 1.125;
+  --line-height-3: 1.25;
+  --line-height-4: 1.5;
+  --letter-spacing: 1;
+  --caps-letter-spacing: .2em;
+  --bold-font-weight: bold;
+
+  --h1: 2rem;
+  --h2: 1.5rem;
+  --h3: 1.25rem;
+  --h4: 1rem;
+  --h5: .875rem;
+  --h6: .75rem;
+
+  --border-width: 1px;
+  --border-radius: 3px;
+
+  --width-1: 24rem;
+  --width-2: 32rem;
+  --width-3: 48rem;
+  --width-4: 64rem;
+
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 2rem;
+  --space-4: 4rem;
+
+  --z1: 1;
+  --z2: 2;
+  --z3: 3;
+  --z4: 4;
+
+}
+*/
+
+/* Custom properties */
+/*
+:root {
+
+}
+*/

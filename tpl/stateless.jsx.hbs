@@ -1,0 +1,19 @@
+import React from 'react';
+
+function {{ componentName }}({ name }) {
+  // const handleChange = (event) => onValueChange(event.currentTarget.value);
+  // const handleClick = () => onElementClick();
+  return (
+    <div>
+      {name}
+    </div>
+  );
+}
+
+{{ componentName }}.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  // onElementClick: React.PropTypes.func.isRequired,
+  // onValueChange: React.PropTypes.func.isRequired,
+};
+
+export default {{ componentName }};
