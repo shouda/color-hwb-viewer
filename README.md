@@ -9,6 +9,7 @@
 * [Immutable.js](http://facebook.github.io/immutable-js/)
 * [Color2](https://github.com/dfcreative/color)
 * [Basscss](http://www.basscss.com/)
+* [SpinKit: loading indicators animated with CSS](https://github.com/tobiasahlin/SpinKit)
 * [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 * [plop: Micro-generator framework](https://github.com/amwmedia/plop)
 
