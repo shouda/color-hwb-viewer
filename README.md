@@ -6,6 +6,8 @@
 
 * [React](http://facebook.github.io/react/)
 * [Redux](http://redux.js.org/)
+* [react-router](https://github.com/reactjs/react-router)
+* [react-router-redux](https://github.com/reactjs/react-router-redux)
 * [Immutable.js](http://facebook.github.io/immutable-js/)
 * [Color2](https://github.com/dfcreative/color)
 * [Basscss](http://www.basscss.com/)
