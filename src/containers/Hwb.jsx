@@ -49,7 +49,11 @@ function Hwb({ origin, adjust, picked, onSelectHue, onAddHue, onMinusHue,
         </div>
         <div className="col col-5">
           <ColorInfo hwb={adjust} />
-          <Pick onPickColor={onPickColor} />
+          <Pick
+            adjust={adjust}
+            picked={picked}
+            onPickColor={onPickColor}
+          />
         </div>
       </div>
       <PickedColor

@@ -1,8 +1,8 @@
 import React from 'react';
-import color from 'color2';
+import { getHex } from '../lib/color.js';
 
 function ColorInfo({ hwb }) {
-  const hex = color().hwb(...hwb).hexString();
+  const hex = getHex(hwb);
   return (
     <div>
       <div className="clearfix" style={{ backgroundColor: hex }}> &nbsp; </div>

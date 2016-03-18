@@ -1,10 +1,21 @@
 import React from 'react';
-import color from 'color2';
+import { hashHistory } from 'react-router';
+import { getHex, getHexURL } from '../lib/color.js';
 
-function PickedItem({ index, picked, onAdjustColor, onDeleteColor }) {
-  const handleAdjust = () => onAdjustColor(picked);
-  const handleDelete = () => onDeleteColor(index);
-  const hex = color().hwb(...picked).hexString();
+function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
+  const handleAdjust = () => onAdjustColor(hwb);
+  const handleDelete = () => {
+    onDeleteColor(index);
+    const items = [];
+    picked.map((v) => items.push(v.toJS()));
+    items.splice(index, 1);
+    if (items.length === 0) {
+      hashHistory.push('/');
+    } else {
+      hashHistory.push(`/picked/${getHexURL(items)}`);
+    }
+  };
+  const hex = getHex(hwb);
   return (
     <div
       className="col col-3 my2"
@@ -20,7 +31,7 @@ function PickedItem({ index, picked, onAdjustColor, onDeleteColor }) {
           >&#x2191;</button>
         </div>
         <div className="col col-6">
-          hwb({picked[0]}, {picked[1]}, {picked[2]})
+          hwb({hwb[0]}, {hwb[1]}, {hwb[2]})
           <br />
           {hex}
         </div>
@@ -38,6 +49,7 @@ function PickedItem({ index, picked, onAdjustColor, onDeleteColor }) {
 PickedItem.propTypes = {
   index: React.PropTypes.number.isRequired,
   picked: React.PropTypes.array.isRequired,
+  hwb: React.PropTypes.array.isRequired,
   onAdjustColor: React.PropTypes.func.isRequired,
   onDeleteColor: React.PropTypes.func.isRequired,
 };

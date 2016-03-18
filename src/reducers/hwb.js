@@ -13,6 +13,8 @@ import {
   PICK_COLOR,
   DELETE_COLOR,
  } from '../actions/hwb';
+import { LOCATION_CHANGE } from 'react-router-redux';
+import { syncPickedWithUrl } from '../lib/color.js';
 
 /* eslint-disable new-cap */
 const initialState = Map({
@@ -23,6 +25,9 @@ const initialState = Map({
 
 function hwb(state = initialState, action) {
   switch (action.type) {
+    case LOCATION_CHANGE:
+      return state.setIn(['picked'],
+        List(syncPickedWithUrl(state.getIn(['picked']), action.payload.pathname)));
     case SET_ORIGIN:
       return state.setIn(['origin'], List(action.hwb));
     case SET_ADJUST:

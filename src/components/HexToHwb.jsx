@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import color from 'color2';
+import { checkHex, getHwb } from '../lib/color.js';
 
 class HexToHwb extends Component {
   constructor() {
@@ -8,9 +8,8 @@ class HexToHwb extends Component {
     this.state = { bgcolor: '#FFF' };
   }
   handleChange(event) {
-    const hex = /^#([a-fA-F0-9]{3}|[a-fA-F0-9]{6})$/;
-    if (event.currentTarget.value.match(hex)) {
-      this.props.onAdjustColor(color.parse(event.currentTarget.value).hwbArray());
+    if (checkHex(event.currentTarget.value)) {
+      this.props.onAdjustColor(getHwb(event.currentTarget.value));
       this.setState({ bgcolor: event.currentTarget.value });
     }
   }

@@ -2,12 +2,12 @@ import './css/main.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { configureStore } from './stores/configureStore';
 
 const store = configureStore();
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(hashHistory, store);
 
 import App from './layouts/App';
 import Hwb from './containers/Hwb';
@@ -16,7 +16,9 @@ const routes = (
   <Router history={history}>
     <Route path="/" component={App}>
       <IndexRoute component={Hwb} />
-      <Route path="Hwb" component={Hwb} />
+      <Route path="picked" component={Hwb}>
+        <Route path="/picked/:hex" component={Hwb} />
+      </Route>
       <Route path="*" component={Hwb} />
     </Route>
   </Router>);

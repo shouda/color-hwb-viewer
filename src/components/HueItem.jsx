@@ -1,8 +1,8 @@
 import React from 'react';
-import color from 'color2';
+import { getHex } from '../lib/color.js';
 
 function HueItem({ hue, onSelectHue }) {
-  const hex = color().hwb(hue, 0, 0).hexString();
+  const hex = getHex([hue, 0, 0]);
   const handleClick = () => onSelectHue(hue);
   return (
     <div
