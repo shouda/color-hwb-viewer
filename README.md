@@ -18,3 +18,5 @@
 * [anorudes/redux-easy-boilerplate](https://github.com/anorudes/redux-easy-boilerplate)
 * [davezuko/react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit)
 * [este/este](https://github.com/este/este)
+* [erikras/react-redux-universal-hot-example](https://github.com/erikras/react-redux-universal-hot-example)
+* [kriasoft/react-starter-kit](https://github.com/kriasoft/react-starter-kit)
