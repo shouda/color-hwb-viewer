@@ -23,7 +23,7 @@ export function getHexURL(picked) {
 
 export function isUrlsyncPicked(picked, pathname) {
   const pickedHex = getHexURL(picked);
-  const pathHex = pathname.replace('/picked/', '');
+  const pathHex = (pathname === '/') ? '' : pathname.replace('/picked/', '');
 
   return pickedHex === pathHex;
 }
