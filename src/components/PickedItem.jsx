@@ -8,11 +8,7 @@ function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
     onDeleteColor(index);
     const items = picked.map(v => v.toJS());
     items.splice(index, 1);
-    if (items.length === 0) {
-      hashHistory.push('/');
-    } else {
-      hashHistory.push(`/picked/${getHexURL(items)}`);
-    }
+    hashHistory.push((items.length === 0) ? '/' : `/picked/${getHexURL(items)}`);
   };
   const hex = getHex(hwb);
   return (
