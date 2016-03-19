@@ -18,7 +18,7 @@ function getHexURL(picked) {
   return picked.reduce((a, v) => a.concat(getHex(v).replace('#', '-')), '');
 }
 
-function isUrlsyncPicked(picked, pathname) {
+function isUrlSyncPicked(picked, pathname) {
   const pickedHex = (picked.length === 0) ? '' : getHexURL(picked);
   const pathHex = (pathname === '/') ? '' : pathname.replace('/picked/', '');
 
@@ -30,7 +30,7 @@ export function syncPickedWithUrl(picked, pathname) {
   const hwb = picked.toJS();
 
   if ((hwb.length === 0 && pathname.match(/^\/picked\/\-\S+$/))
-    || !isUrlsyncPicked(hwb, pathname)) {
+    || !isUrlSyncPicked(hwb, pathname)) {
     /* eslint-disable new-cap */
     newPicked = pathname.split('-').filter(v => checkHex(`#${v}`)).map(v => List(getHwb(`#${v}`)));
     /* eslint-enable new-cap */
