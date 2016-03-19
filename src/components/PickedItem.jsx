@@ -6,8 +6,7 @@ function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
   const handleAdjust = () => onAdjustColor(hwb);
   const handleDelete = () => {
     onDeleteColor(index);
-    const items = picked.map(v => v.toJS());
-    items.splice(index, 1);
+    const items = picked.filter((_, i) => i !== index).map(v => v.toJS());
     hashHistory.push((items.length === 0) ? '/' : `/picked/${getHexURL(items)}`);
   };
   const hex = getHex(hwb);
