@@ -6,8 +6,7 @@ function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
   const handleAdjust = () => onAdjustColor(hwb);
   const handleDelete = () => {
     onDeleteColor(index);
-    const items = [];
-    picked.map((v) => items.push(v.toJS()));
+    const items = picked.map(v => v.toJS());
     items.splice(index, 1);
     if (items.length === 0) {
       hashHistory.push('/');

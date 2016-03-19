@@ -5,8 +5,7 @@ import { getHexURL } from '../lib/color.js';
 function Pick({ adjust, picked, onPickColor }) {
   const handleClick = () => {
     onPickColor();
-    const items = [];
-    picked.map((v) => items.push(v.toJS()));
+    const items = picked.map(v => v.toJS());
     items.push(adjust);
     hashHistory.push(`/picked/${getHexURL(items)}`);
   };
