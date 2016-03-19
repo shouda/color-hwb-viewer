@@ -1,5 +1,6 @@
-import { List } from 'immutable';
 import color from 'color2';
+import { List } from 'immutable';
+import { hashHistory } from 'react-router';
 
 export function checkHex(text) {
   return text.match(/^#([a-fA-F0-9]{3}|[a-fA-F0-9]{6})$/);
@@ -13,11 +14,11 @@ export function getHwb(hex) {
   return color.parse(hex).hwbArray();
 }
 
-export function getHexURL(picked) {
+function getHexURL(picked) {
   return picked.reduce((a, v) => a.concat(getHex(v).replace('#', '-')), '');
 }
 
-export function isUrlsyncPicked(picked, pathname) {
+function isUrlsyncPicked(picked, pathname) {
   const pickedHex = (picked.length === 0) ? '' : getHexURL(picked);
   const pathHex = (pathname === '/') ? '' : pathname.replace('/picked/', '');
 
@@ -38,4 +39,10 @@ export function syncPickedWithUrl(picked, pathname) {
   }
 
   return newPicked;
+}
+
+export function pickedPushToUrl(picked, adjust = []) {
+  const items = picked.map(v => v.toJS());
+  if (adjust.length > 0) items.push(adjust);
+  hashHistory.push((items.length === 0) ? '/' : `/picked/${getHexURL(items)}`);
 }

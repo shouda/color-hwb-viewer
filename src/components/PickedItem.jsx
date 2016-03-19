@@ -1,13 +1,11 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
-import { getHex, getHexURL } from '../lib/color.js';
+import { getHex, pickedPushToUrl } from '../lib/color.js';
 
 function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
   const handleAdjust = () => onAdjustColor(hwb);
   const handleDelete = () => {
     onDeleteColor(index);
-    const items = picked.filter((_, i) => i !== index).map(v => v.toJS());
-    hashHistory.push((items.length === 0) ? '/' : `/picked/${getHexURL(items)}`);
+    pickedPushToUrl(picked.filter((_, i) => i !== index));
   };
   const hex = getHex(hwb);
   return (

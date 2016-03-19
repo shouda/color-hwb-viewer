@@ -1,12 +1,10 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
-import { getHexURL } from '../lib/color.js';
+import { pickedPushToUrl } from '../lib/color.js';
 
 function Pick({ adjust, picked, onPickColor }) {
   const handleClick = () => {
     onPickColor();
-    const items = picked.map(v => v.toJS());
-    hashHistory.push(`/picked/${getHexURL(items.push(adjust))}`);
+    pickedPushToUrl(picked, adjust);
   };
   return (
     <div className="col col-12">
