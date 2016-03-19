@@ -14,15 +14,11 @@ export function getHwb(hex) {
 }
 
 export function getHexURL(picked) {
-  let url = '';
-  picked.forEach((v) => {
-    url += getHex(v).replace('#', '-');
-  });
-  return url;
+  return picked.reduce((a, v) => a.concat(getHex(v).replace('#', '-')), '');
 }
 
 export function isUrlsyncPicked(picked, pathname) {
-  const pickedHex = getHexURL(picked);
+  const pickedHex = (picked.length === 0) ? '' : getHexURL(picked);
   const pathHex = (pathname === '/') ? '' : pathname.replace('/picked/', '');
 
   return pickedHex === pathHex;
@@ -34,13 +30,9 @@ export function syncPickedWithUrl(picked, pathname) {
 
   if ((hwb.length === 0 && pathname.match(/^\/picked\/\-\S+$/))
     || !isUrlsyncPicked(hwb, pathname)) {
-    const hexArr = pathname.split('-');
-    hexArr.forEach((v) => {
-      const hex = `#${v}`;
-      if (checkHex(hex)) {
-        newPicked.push(List(getHwb(hex))); // eslint-disable-line new-cap
-      }
-    });
+    /* eslint-disable new-cap */
+    newPicked = pathname.split('-').filter(v => checkHex(`#${v}`)).map(v => List(getHwb(`#${v}`)));
+    /* eslint-enable new-cap */
   } else {
     newPicked = picked;
   }
