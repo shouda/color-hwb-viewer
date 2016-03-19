@@ -6,8 +6,7 @@ function Pick({ adjust, picked, onPickColor }) {
   const handleClick = () => {
     onPickColor();
     const items = picked.map(v => v.toJS());
-    items.push(adjust);
-    hashHistory.push(`/picked/${getHexURL(items)}`);
+    hashHistory.push(`/picked/${getHexURL(items.push(adjust))}`);
   };
   return (
     <div className="col col-12">
