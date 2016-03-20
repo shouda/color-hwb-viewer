@@ -5,11 +5,7 @@
  * @return {Array}        - [start, ..., end]
  */
 export function arrayRange(start, end) {
-  const items = [];
-  for (let i = start; i <= end; i++) {
-    items.push(i);
-  }
-  return items;
+  return Array((end - start) + 1).fill(0).map((_, i) => start + i);
 }
 
 /**
@@ -20,11 +16,6 @@ export function arrayRange(start, end) {
  * @return {Number}        - number between min and max value
  */
 export function betweenValue(number, min, max) {
-  let n = number;
-  if (n < min) {
-    n = min;
-  } else if (n > max) {
-    n = max;
-  }
-  return n;
+  const n = (number > max) ? max : number;
+  return (n < min) ? min : n;
 }
