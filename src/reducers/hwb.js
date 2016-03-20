@@ -1,4 +1,4 @@
-import { Map, List } from 'immutable';
+import { Map, List, fromJS } from 'immutable';
 import {
   SET_ORIGIN,
   SET_ADJUST,
@@ -27,7 +27,7 @@ function hwb(state = initialState, action) {
   switch (action.type) {
     case LOCATION_CHANGE:
       return state.setIn(['picked'],
-        List(syncPickedWithUrl(state.getIn(['picked']), action.payload.pathname)));
+        fromJS(syncPickedWithUrl(state.getIn(['picked']).toJS(), action.payload.pathname)));
     case SET_ORIGIN:
       return state.setIn(['origin'], List(action.hwb));
     case SET_ADJUST:

@@ -4,7 +4,7 @@ import { pickedPushToUrl } from '../lib/color.js';
 function Pick({ adjust, picked, onPickColor }) {
   const handleClick = () => {
     onPickColor();
-    pickedPushToUrl(picked, adjust);
+    pickedPushToUrl([...picked, adjust]);
   };
   return (
     <div className="col col-12">

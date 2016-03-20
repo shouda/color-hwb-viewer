@@ -11,7 +11,7 @@ function PickedColor({ picked, onAdjustColor, onDeleteColor }) {
           key={k}
           index={k}
           picked={picked}
-          hwb={v.toArray()}
+          hwb={v}
           onAdjustColor={onAdjustColor}
           onDeleteColor={onDeleteColor}
         />

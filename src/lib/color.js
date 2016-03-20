@@ -1,5 +1,4 @@
 import color from 'color2';
-import { List } from 'immutable';
 import { hashHistory } from 'react-router';
 
 export function checkHex(text) {
@@ -21,28 +20,20 @@ function getHexURL(picked) {
 function isUrlSyncPicked(picked, pathname) {
   const pickedHex = (picked.length === 0) ? '' : getHexURL(picked);
   const pathHex = (pathname === '/') ? '' : pathname.replace('/picked/', '');
-
   return pickedHex === pathHex;
 }
 
 export function syncPickedWithUrl(picked, pathname) {
   let newPicked = [];
-  const hwb = picked.toJS();
-
-  if ((hwb.length === 0 && pathname.match(/^\/picked\/\-\S+$/))
-    || !isUrlSyncPicked(hwb, pathname)) {
-    /* eslint-disable new-cap */
-    newPicked = pathname.split('-').filter(v => checkHex(`#${v}`)).map(v => List(getHwb(`#${v}`)));
-    /* eslint-enable new-cap */
+  if ((picked.length === 0 && pathname.match(/^\/picked\/\-\S+$/))
+    || !isUrlSyncPicked(picked, pathname)) {
+    newPicked = pathname.split('-').filter(v => checkHex(`#${v}`)).map(v => getHwb(`#${v}`));
   } else {
     newPicked = picked;
   }
-
   return newPicked;
 }
 
-export function pickedPushToUrl(picked, adjust = []) {
-  const items = picked.map(v => v.toJS());
-  if (adjust.length > 0) items.push(adjust);
-  hashHistory.push((items.length === 0) ? '/' : `/picked/${getHexURL(items)}`);
+export function pickedPushToUrl(picked) {
+  hashHistory.push((picked.length === 0) ? '/' : `/picked/${getHexURL(picked)}`);
 }

@@ -93,7 +93,7 @@ function mapStateToProps(state) {
   return {
     origin: state.hwb.get('origin').toArray(),
     adjust: state.hwb.get('adjust').toArray(),
-    picked: state.hwb.get('picked').toArray(),
+    picked: state.hwb.get('picked').toJS(),
   };
 }
 
