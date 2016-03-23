@@ -1,10 +1,10 @@
 import React from 'react';
-import { arrayRange } from '../lib/utils';
+import range from '../lib/range';
 
 import HueItem from '../components/HueItem';
 
 function HueBar({ onSelectHue }) {
-  const hues = arrayRange(0, 359);
+  const hues = range(0, 359);
   return (
     <table width="720px" className="mx-auto">
       <tbody>
