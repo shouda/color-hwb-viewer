@@ -1,21 +1,28 @@
 import React from 'react';
 import { getHex } from '../lib/color.js';
 
-function HueItem({ hue, onSelectHue }) {
-  const hex = getHex([hue, 0, 0]);
-  const handleClick = () => onSelectHue(hue);
+function HueItem({ id, hue, onSelectHue }) {
+  const hex = getHex([id, 0, 0]);
+  const str = (id === hue) ? '\u2758' : '\u202f';
+  const handleClick = () => onSelectHue(id);
   return (
     <div
       className="left"
-      style={{ width: '2px', backgroundColor: hex }}
+      style={{ width: '0.2777%',
+               height: '1.5rem',
+               fontSize: '1px',
+               textAlign: 'center',
+               backgroundColor: hex,
+            }}
       onClick={handleClick}
     >
-      &nbsp;
+      {str}
     </div>
   );
 }
 
 HueItem.propTypes = {
+  id: React.PropTypes.number.isRequired,
   hue: React.PropTypes.number.isRequired,
   onSelectHue: React.PropTypes.func.isRequired,
 };

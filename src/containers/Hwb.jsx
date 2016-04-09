@@ -14,7 +14,6 @@ import {
 } from '../actions/hwb';
 
 import HueBar from '../components/HueBar';
-import IndicatorBar from '../components/IndicatorBar';
 import ColorInfo from '../components/ColorInfo';
 import Adjuster from '../components/Adjuster';
 import Pick from '../components/Pick';
@@ -27,8 +26,7 @@ function Hwb({ origin, adjust, picked, onSelectHue, onAddHue, onMinusHue,
   return (
     <div>
       <div className="clearfix mb2">
-        <IndicatorBar indicator="." hue={origin[0]} />
-        <HueBar onSelectHue={onSelectHue} />
+        <HueBar hue={origin[0]} onSelectHue={onSelectHue} />
       </div>
       <HexToHwb onAdjustColor={onAdjustColor} />
       <hr />
