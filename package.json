@@ -40,7 +40,7 @@
     "basscss-btn-sizes": "~1.2.0",
     "color2": "~1.0.8",
     "immutable": "~3.7.6",
-    "normalize.css": "~4.0.0",
+    "normalize.css": "~4.1.1",
     "react": "~15.0.1",
     "react-dom": "~15.0.1",
     "react-redux": "~4.4.2",

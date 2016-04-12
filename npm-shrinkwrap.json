@@ -3032,9 +3032,9 @@
       "resolved": "https://registry.npmjs.org/normalize-url/-/normalize-url-1.4.1.tgz"
     },
     "normalize.css": {
-      "version": "4.0.0",
-      "from": "normalize.css@>=4.0.0 <4.1.0",
-      "resolved": "https://registry.npmjs.org/normalize.css/-/normalize.css-4.0.0.tgz"
+      "version": "4.1.1",
+      "from": "normalize.css@>=4.1.1 <4.2.0",
+      "resolved": "https://registry.npmjs.org/normalize.css/-/normalize.css-4.1.1.tgz"
     },
     "num2fraction": {
       "version": "1.2.2",
