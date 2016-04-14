@@ -22,3 +22,5 @@
 * [este/este](https://github.com/este/este)
 * [erikras/react-redux-universal-hot-example](https://github.com/erikras/react-redux-universal-hot-example)
 * [kriasoft/react-starter-kit](https://github.com/kriasoft/react-starter-kit)
+* [tj/frontend-boilerplate](https://github.com/tj/frontend-boilerplate)
+* [coryhouse/react-slingshot](https://github.com/coryhouse/react-slingshot)
