@@ -2,21 +2,22 @@ import React from 'react';
 import { getHex } from '../lib/color.js';
 
 function ColorInfo({ hwb }) {
-  const hex = getHex(hwb);
+  const hwbArr = hwb.toArray();
+  const hex = getHex(hwbArr);
   return (
     <div>
       <div className="clearfix" style={{ backgroundColor: hex }}> &nbsp; </div>
       <div className="clearfix py1">
         <div className="col col-6">Hue:</div>
-        <div className="col col-6">{hwb[0]}</div>
+        <div className="col col-6">{hwbArr[0]}</div>
       </div>
       <div className="clearfix py1">
         <div className="col col-6">Whiteness:</div>
-        <div className="col col-6">{hwb[1]}</div>
+        <div className="col col-6">{hwbArr[1]}</div>
       </div>
       <div className="clearfix py1">
         <div className="col col-6">Blackness:</div>
-        <div className="col col-6">{hwb[2]}</div>
+        <div className="col col-6">{hwbArr[2]}</div>
       </div>
       <div className="clearfix py1">
         <div className="col col-6">Hex:</div>
@@ -27,7 +28,7 @@ function ColorInfo({ hwb }) {
 }
 
 ColorInfo.propTypes = {
-  hwb: React.PropTypes.array.isRequired,
+  hwb: React.PropTypes.object.isRequired,
 };
 
 export default ColorInfo;

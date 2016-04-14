@@ -3,10 +3,11 @@ import React from 'react';
 import PickedItem from './PickedItem';
 
 function PickedColor({ picked, onAdjustColor, onDeleteColor }) {
+  const pickedArr = picked.toArray();
   return (
     <div className="my2 clearfix center">
       <hr />
-      {picked.map((v, k) => (
+      {pickedArr.map((v, k) => (
         <PickedItem
           key={k}
           index={k}
@@ -21,7 +22,7 @@ function PickedColor({ picked, onAdjustColor, onDeleteColor }) {
 }
 
 PickedColor.propTypes = {
-  picked: React.PropTypes.array.isRequired,
+  picked: React.PropTypes.object.isRequired,
   onAdjustColor: React.PropTypes.func.isRequired,
   onDeleteColor: React.PropTypes.func.isRequired,
 };

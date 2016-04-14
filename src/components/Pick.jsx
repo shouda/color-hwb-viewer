@@ -4,7 +4,9 @@ import { pickedPushToUrl } from '../lib/color.js';
 function Pick({ adjust, picked, onPickColor }) {
   const handleClick = () => {
     onPickColor();
-    pickedPushToUrl([...picked, adjust]);
+    const adjustArr = adjust.toArray();
+    const pickedArr = picked.toJS();
+    pickedPushToUrl([...pickedArr, adjustArr]);
   };
   return (
     <div className="col col-12">
@@ -18,8 +20,8 @@ function Pick({ adjust, picked, onPickColor }) {
 }
 
 Pick.propTypes = {
-  adjust: React.PropTypes.array.isRequired,
-  picked: React.PropTypes.array.isRequired,
+  adjust: React.PropTypes.object.isRequired,
+  picked: React.PropTypes.object.isRequired,
   onPickColor: React.PropTypes.func.isRequired,
 };
 

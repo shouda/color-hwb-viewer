@@ -2,12 +2,14 @@ import React from 'react';
 import { getHex, pickedPushToUrl } from '../lib/color.js';
 
 function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
-  const handleAdjust = () => onAdjustColor(hwb);
+  const pickedArr = picked.toJS();
+  const hwbArr = hwb.toArray();
+  const handleAdjust = () => onAdjustColor(hwbArr);
   const handleDelete = () => {
     onDeleteColor(index);
-    pickedPushToUrl(picked.filter((_, i) => i !== index));
+    pickedPushToUrl(pickedArr.filter((_, i) => i !== index));
   };
-  const hex = getHex(hwb);
+  const hex = getHex(hwbArr);
   return (
     <div
       className="col col-3 my2"
@@ -23,7 +25,7 @@ function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
           >&#x2191;</button>
         </div>
         <div className="col col-6">
-          hwb({hwb[0]}, {hwb[1]}, {hwb[2]})
+          hwb({hwbArr[0]}, {hwbArr[1]}, {hwbArr[2]})
           <br />
           {hex}
         </div>
@@ -40,8 +42,8 @@ function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
 
 PickedItem.propTypes = {
   index: React.PropTypes.number.isRequired,
-  picked: React.PropTypes.array.isRequired,
-  hwb: React.PropTypes.array.isRequired,
+  picked: React.PropTypes.object.isRequired,
+  hwb: React.PropTypes.object.isRequired,
   onAdjustColor: React.PropTypes.func.isRequired,
   onDeleteColor: React.PropTypes.func.isRequired,
 };

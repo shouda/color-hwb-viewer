@@ -26,7 +26,7 @@ function Hwb({ origin, adjust, picked, onSelectHue, onAddHue, onMinusHue,
   return (
     <div>
       <div className="clearfix mb2">
-        <HueBar hue={origin[0]} onSelectHue={onSelectHue} />
+        <HueBar origin={origin} onSelectHue={onSelectHue} />
       </div>
       <HexToHwb onAdjustColor={onAdjustColor} />
       <hr />
@@ -72,9 +72,9 @@ function Hwb({ origin, adjust, picked, onSelectHue, onAddHue, onMinusHue,
 }
 
 Hwb.propTypes = {
-  origin: React.PropTypes.array,
-  adjust: React.PropTypes.array,
-  picked: React.PropTypes.array,
+  origin: React.PropTypes.object,
+  adjust: React.PropTypes.object,
+  picked: React.PropTypes.object,
   onSelectHue: React.PropTypes.func,
   onAddHue: React.PropTypes.func,
   onMinusHue: React.PropTypes.func,
@@ -89,9 +89,9 @@ Hwb.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    origin: state.hwb.get('origin').toArray(),
-    adjust: state.hwb.get('adjust').toArray(),
-    picked: state.hwb.get('picked').toJS(),
+    origin: state.hwb.get('origin'),
+    adjust: state.hwb.get('adjust'),
+    picked: state.hwb.get('picked'),
   };
 }
 

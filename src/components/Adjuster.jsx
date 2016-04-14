@@ -2,12 +2,13 @@ import React from 'react';
 
 function Adjuster({ adjust, onAddHue, onMinusHue, onAddWhite, onMinusWhite,
                     onAddBlack, onMinusBlack }) {
-  const addHue = adjust[0] >= 359;
-  const minusHue = adjust[0] <= 0;
-  const addWhite = adjust[1] >= 100;
-  const minusWhite = adjust[1] <= 0;
-  const addBlack = adjust[2] >= 100;
-  const minusBlack = adjust[2] <= 0;
+  const adjustArr = adjust.toArray();
+  const addHue = adjustArr[0] >= 359;
+  const minusHue = adjustArr[0] <= 0;
+  const addWhite = adjustArr[1] >= 100;
+  const minusWhite = adjustArr[1] <= 0;
+  const addBlack = adjustArr[2] >= 100;
+  const minusBlack = adjustArr[2] <= 0;
   const handleAddHue = () => onAddHue();
   const handleMinusHue = () => onMinusHue();
   const handleAddWhite = () => onAddWhite();
@@ -70,7 +71,7 @@ function Adjuster({ adjust, onAddHue, onMinusHue, onAddWhite, onMinusWhite,
 }
 
 Adjuster.propTypes = {
-  adjust: React.PropTypes.array.isRequired,
+  adjust: React.PropTypes.object.isRequired,
   onAddHue: React.PropTypes.func.isRequired,
   onMinusHue: React.PropTypes.func.isRequired,
   onAddWhite: React.PropTypes.func.isRequired,
