@@ -17,7 +17,7 @@ function HueItem({ id, origin, onSelectHue }) {
             }}
       onClick={handleClick}
     >
-      {str}
+      <div style={{ marginTop: '-5px' }}>{str}</div>
     </div>
   );
 }
