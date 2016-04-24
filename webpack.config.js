@@ -5,7 +5,7 @@ const fs = require('fs');
 const isProd = process.env.NODE_ENV === 'production';
 
 const entryApp = [
-  path.resolve(__dirname, './src/index'),
+  path.resolve(__dirname, 'src/index'),
 ];
 
 const webpackPlugins = [
