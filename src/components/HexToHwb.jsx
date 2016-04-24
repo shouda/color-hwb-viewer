@@ -25,7 +25,8 @@ class HexToHwb extends Component {
           />
         </div>
         <div className="clearfix mb2">
-          <div className="mx-auto"
+          <div
+            className="mx-auto"
             style={{ backgroundColor: this.state.bgcolor, width: '25%' }}
           >&nbsp;</div>
         </div>

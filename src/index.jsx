@@ -19,6 +19,7 @@ ReactDOM.render(
   rootElement
 );
 
+/* eslint-disable global-require */
 if (module.hot) {
   module.hot.accept('./main', () => {
     ReactDOM.render(
@@ -30,6 +31,7 @@ if (module.hot) {
     );
   });
 }
+/* eslint-enable global-require */
 
 document.querySelector('#loading').style.cssText = 'transition: 0.5s; opacity: 0';
 window.setTimeout(() => {

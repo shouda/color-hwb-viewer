@@ -31,6 +31,7 @@ export function configureStore(initialState) {
     )
   );
 
+  /* eslint-disable global-require */
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
     module.hot.accept('../reducers', () => {
@@ -41,3 +42,4 @@ export function configureStore(initialState) {
 
   return store;
 }
+/* eslint-enable global-require */
