@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { configureStore } from './stores/configureStore';
-import { configureRoute } from './routes';
+import { configureRoute } from './routes/configureRoute';
 import Main from './main';
 
 const store = configureStore();
