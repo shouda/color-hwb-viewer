@@ -5,7 +5,7 @@ const fs = require('fs');
 const isProd = process.env.NODE_ENV === 'production';
 
 const entryApp = [
-  path.resolve(__dirname, 'src/main'),
+  path.resolve(__dirname, './src/index'),
 ];
 
 const webpackPlugins = [
@@ -36,6 +36,7 @@ if (isProd) {
     }
   );
 } else {
+  entryApp.unshift('react-hot-loader/patch');
   entryApp.unshift('webpack-hot-middleware/client');
 }
 
@@ -80,11 +81,8 @@ const config = {
       {
         test: /\.(jsx|js)$/,
         exclude: [path.resolve(__dirname, 'node_modules')],
+        include: [path.resolve(__dirname, 'src')],
         loader: 'babel',
-        query: {
-          cacheDirectory: true,
-          presets: ['es2015', 'react'],
-        },
       },
     ],
   },
