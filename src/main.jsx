@@ -2,17 +2,23 @@ import './css/main.css';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
+import { configureRoute } from './routes/configureRoute';
 
-const Main = ({ store, history, configureRoute }) => (
+let hmrKey = Math.random();
+
+const Main = ({ store, history }) => (
   <Provider store={store}>
-    <Router history={history} routes={configureRoute} />
+    <Router key={hmrKey} history={history} routes={configureRoute} />
   </Provider>
 );
 
 Main.propTypes = {
   history: React.PropTypes.object.isRequired,
-  configureRoute: React.PropTypes.object.isRequired,
   store: React.PropTypes.object.isRequired,
 };
+
+if (module.hot) {
+  hmrKey = Math.random();
+}
 
 export default Main;

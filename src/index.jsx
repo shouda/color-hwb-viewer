@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { configureStore } from './stores/configureStore';
-import { configureRoute } from './routes/configureRoute';
 import Main from './main';
 
 const store = configureStore();
@@ -14,7 +13,7 @@ const rootElement = document.querySelector('#app');
 ReactDOM.render(
   <AppContainer
     component={Main}
-    props={{ store, history, configureRoute }}
+    props={{ store, history }}
   />,
   rootElement
 );
@@ -25,7 +24,7 @@ if (module.hot) {
     ReactDOM.render(
       <AppContainer
         component={require('./main').default}
-        props={{ store, history, configureRoute }}
+        props={{ store, history }}
       />,
       rootElement
     );
