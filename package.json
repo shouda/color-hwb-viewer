@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=development webpack --config webpack.config.js --profile --progress --colors",
     "deploy": "NODE_ENV=production webpack --config webpack.config.js; script/chunkhash.js",
-    "dev": "NODE_ENV=development node server.js",
+    "dev": "NODE_ENV=development node server-webpack.js",
     "pro": "NODE_ENV=production babel-node server-koa.js",
     "new-component": "plop component",
     "new-stateless": "plop stateless",
