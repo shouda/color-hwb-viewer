@@ -37,10 +37,8 @@ if (isProd) {
     }
   );
 } else {
+  entryApp.unshift('webpack-hot-middleware/client');
   entryApp.unshift('react-hot-loader/patch');
-  entryApp.unshift('webpack/hot/only-dev-server');
-  entryApp.unshift('webpack-dev-server/client?http://localhost:8080');
-  // entryApp.unshift('webpack-hot-middleware/client');
 }
 
 const config = {

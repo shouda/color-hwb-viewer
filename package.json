@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=development webpack --config webpack.config.js --profile --progress --colors",
     "deploy": "NODE_ENV=production webpack --config webpack.config.js; script/chunkhash.js",
-    "dev": "NODE_ENV=development node server-webpack.js",
+    "dev": "NODE_ENV=development babel-node server-koa.js",
     "pro": "NODE_ENV=production babel-node server-koa.js",
     "new-component": "plop component",
     "new-stateless": "plop stateless",
@@ -78,7 +78,6 @@
     "react-hot-loader": "^3.0.0-alpha.12",
     "redbox-react": "~1.2.3",
     "style-loader": "~0.13.1",
-    "webpack": "~1.13.0",
-    "webpack-dev-server": "~1.14.1"
+    "webpack": "~1.13.0"
   }
 }
