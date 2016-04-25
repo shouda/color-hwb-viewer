@@ -74,10 +74,6 @@ const config = {
     noParse: [],
     loaders: [
       {
-        test: /\.html$/,
-        loader: 'file?name=[name].[ext]',
-      },
-      {
         test: /\.css$/,
         loader: 'style!css!postcss',
       },
