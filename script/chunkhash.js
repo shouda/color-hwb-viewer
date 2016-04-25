@@ -6,7 +6,7 @@ const path = require('path');
 const jsonContent = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../dist/stats.json')));
 
 /* eslint-disable no-var, prefer-template */
-var htmlContent = fs.readFileSync(path.resolve(__dirname, '../index.html')).toString();
+var htmlContent = fs.readFileSync(path.resolve(__dirname, '../src/index.html')).toString();
 
 htmlContent = htmlContent.replace(
   ' src="./vendors.js"',
