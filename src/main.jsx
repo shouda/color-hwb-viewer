@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import { configureRoute } from './routes/configureRoute';
 
-let hmrKey = Math.random();
+const hmrKey = Math.random();
 
 const Main = ({ store, history }) => (
   <Provider store={store}>
@@ -15,9 +15,5 @@ Main.propTypes = {
   history: React.PropTypes.object.isRequired,
   store: React.PropTypes.object.isRequired,
 };
-
-if (module.hot) {
-  hmrKey = Math.random();
-}
 
 export default Main;
