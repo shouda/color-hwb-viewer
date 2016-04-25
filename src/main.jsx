@@ -3,13 +3,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 
-function Main({ store, history, configureRoute }) {
-  return (
-    <Provider store={store}>
-      <Router history={history} routes={configureRoute} />
-    </Provider>
-  );
-}
+const Main = ({ store, history, configureRoute }) => (
+  <Provider store={store}>
+    <Router history={history} routes={configureRoute} />
+  </Provider>
+);
 
 Main.propTypes = {
   history: React.PropTypes.object.isRequired,
