@@ -16,20 +16,9 @@ function getRoute() {
 }
 
 export default function getRouter(history) {
-  let router;
-  if (module.hot) {
-    const hmrKey = Math.random();
-    router = (
-      <Router key={hmrKey} history={history}>
-        {getRoute()}
-      </Router>
-    );
-  } else {
-    router = (
-      <Router history={history}>
-        {getRoute()}
-      </Router>
-    );
-  }
-  return router;
+  return (
+    <Router history={history}>
+      {getRoute()}
+    </Router>
+  );
 }
