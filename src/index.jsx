@@ -11,26 +11,22 @@ const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
 const rootElement = document.querySelector('#app');
 
-ReactDOM.render(
-  <AppContainer>
-    <Main store={store} history={history} />
-  </AppContainer>,
-  rootElement
-);
-
-/* eslint-disable global-require, no-shadow */
-if (module.hot) {
-  module.hot.accept('./main', () => {
-    const Main = require('./main').default;
-    ReactDOM.render(
-      <AppContainer>
-        <Main store={store} history={history} />
-      </AppContainer>,
-      rootElement
-    );
-  });
+function renderApp(RootComponent) {
+  ReactDOM.render(
+    <AppContainer>
+      <RootComponent store={store} history={history} />
+    </AppContainer>,
+    rootElement
+  );
 }
-/* eslint-enable global-require, no-shadow */
+
+renderApp(Main);
+
+/* eslint-disable global-require */
+if (module.hot) {
+  module.hot.accept('./main', () => renderApp(require('./main').default));
+}
+/* eslint-enable global-require */
 
 document.querySelector('#loading').style.cssText = 'transition: 0.5s; opacity: 0';
 window.setTimeout(() => {
