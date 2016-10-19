@@ -1,5 +1,5 @@
 import React from 'react';
-import { getHex, pickedPushToUrl } from '../lib/color.js';
+import { getHex, pickedPushToUrl } from '../lib/color';
 
 function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
   const pickedArr = picked.toJS();
@@ -42,8 +42,8 @@ function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
 
 PickedItem.propTypes = {
   index: React.PropTypes.number.isRequired,
-  picked: React.PropTypes.object.isRequired,
-  hwb: React.PropTypes.object.isRequired,
+  picked: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+  hwb: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
   onAdjustColor: React.PropTypes.func.isRequired,
   onDeleteColor: React.PropTypes.func.isRequired,
 };

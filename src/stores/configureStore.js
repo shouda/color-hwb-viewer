@@ -21,7 +21,7 @@ const logger = createLogger({
   },
 });
 
-export function configureStore(initialState) {
+const configureStore = (initialState) => {
   const store = createStore(
     rootReducer,
     initialState,
@@ -31,15 +31,17 @@ export function configureStore(initialState) {
     )
   );
 
-  /* eslint-disable global-require */
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
     module.hot.accept('../reducers', () => {
+      /* eslint-disable global-require */
       const nextReducer = require('../reducers/index').default;
+      /* eslint-enable global-require */
       store.replaceReducer(nextReducer);
     });
   }
 
   return store;
-}
-/* eslint-enable global-require */
+};
+
+export default configureStore;

@@ -1,10 +1,11 @@
-import './css/main.css';
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import { configureStore } from './stores/configureStore';
+import configureStore from './stores/configureStore';
+import './css/main.css';
 import Main from './main';
 
 const store = configureStore();
@@ -28,6 +29,7 @@ if (module.hot) {
 }
 /* eslint-enable global-require */
 
+/* eslint-env browser */
 document.querySelector('#loading').style.cssText = 'transition: 0.5s; opacity: 0';
 window.setTimeout(() => {
   document.querySelector('#loading').style.cssText = 'display: none';

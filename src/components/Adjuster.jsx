@@ -71,7 +71,7 @@ function Adjuster({ adjust, onAddHue, onMinusHue, onAddWhite, onMinusWhite,
 }
 
 Adjuster.propTypes = {
-  adjust: React.PropTypes.object.isRequired,
+  adjust: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
   onAddHue: React.PropTypes.func.isRequired,
   onMinusHue: React.PropTypes.func.isRequired,
   onAddWhite: React.PropTypes.func.isRequired,

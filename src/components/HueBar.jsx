@@ -15,7 +15,7 @@ function HueBar({ origin, onSelectHue }) {
 }
 
 HueBar.propTypes = {
-  origin: React.PropTypes.object.isRequired,
+  origin: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
   onSelectHue: React.PropTypes.func.isRequired,
 };
 

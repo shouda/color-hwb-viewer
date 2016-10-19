@@ -1,9 +1,11 @@
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 import koa from 'koa';
 import serve from 'koa-static';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'koa-webpack-dev-middleware';
 import webpackHotMiddleware from 'koa-webpack-hot-middleware';
 import webpackConfig from './webpack.config';
+
 const app = koa();
 
 let viewDir;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { checkHex, getHwb } from '../lib/color.js';
+import { checkHex, getHwb } from '../lib/color';
 
 class HexToHwb extends Component {
   constructor() {

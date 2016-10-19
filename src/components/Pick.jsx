@@ -1,5 +1,5 @@
 import React from 'react';
-import { pickedPushToUrl } from '../lib/color.js';
+import { pickedPushToUrl } from '../lib/color';
 
 function Pick({ adjust, picked, onPickColor }) {
   const handleClick = () => {
@@ -20,8 +20,8 @@ function Pick({ adjust, picked, onPickColor }) {
 }
 
 Pick.propTypes = {
-  adjust: React.PropTypes.object.isRequired,
-  picked: React.PropTypes.object.isRequired,
+  adjust: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+  picked: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
   onPickColor: React.PropTypes.func.isRequired,
 };
 

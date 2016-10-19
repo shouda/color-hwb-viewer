@@ -1,4 +1,4 @@
-/* eslint-disable global-require */
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
@@ -87,6 +87,7 @@ const config = {
       },
     ],
   },
+  /* eslint-disable global-require */
   postcss: () => (
     [
       require('postcss-import')({ addDependencyTo: webpack }),
@@ -100,6 +101,7 @@ const config = {
       require('postcss-reporter')(),
     ]
   ),
+  /* eslint-enable global-require */
   plugins: webpackPlugins,
 };
 

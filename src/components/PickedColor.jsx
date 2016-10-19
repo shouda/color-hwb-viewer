@@ -22,7 +22,7 @@ function PickedColor({ picked, onAdjustColor, onDeleteColor }) {
 }
 
 PickedColor.propTypes = {
-  picked: React.PropTypes.object.isRequired,
+  picked: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
   onAdjustColor: React.PropTypes.func.isRequired,
   onDeleteColor: React.PropTypes.func.isRequired,
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getHex } from '../lib/color.js';
+import { getHex } from '../lib/color';
 
 function ColorInfo({ hwb }) {
   const hwbArr = hwb.toArray();
@@ -28,7 +28,7 @@ function ColorInfo({ hwb }) {
 }
 
 ColorInfo.propTypes = {
-  hwb: React.PropTypes.object.isRequired,
+  hwb: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
 };
 
 export default ColorInfo;

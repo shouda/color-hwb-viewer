@@ -3,6 +3,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import App from '../layouts/App';
 import Hwb from '../containers/Hwb';
 
+/* eslint-disable react/jsx-filename-extension */
 function getRoute() {
   return (
     <Route path="/" component={App}>

@@ -1,4 +1,5 @@
 import { Map, List, fromJS } from 'immutable';
+import { LOCATION_CHANGE } from 'react-router-redux';
 import {
   SET_ORIGIN,
   SET_ADJUST,
@@ -13,8 +14,7 @@ import {
   PICK_COLOR,
   DELETE_COLOR,
  } from '../actions/hwb';
-import { LOCATION_CHANGE } from 'react-router-redux';
-import { syncPickedWithUrl } from '../lib/color.js';
+import { syncPickedWithUrl } from '../lib/color';
 
 /* eslint-disable new-cap */
 const initialState = Map({

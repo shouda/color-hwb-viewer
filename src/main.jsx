@@ -9,8 +9,8 @@ const Main = ({ store, history }) => (
 );
 
 Main.propTypes = {
-  history: React.PropTypes.object.isRequired,
-  store: React.PropTypes.object.isRequired,
+  history: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+  store: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
 };
 
 export default Main;
