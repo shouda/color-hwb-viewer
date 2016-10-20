@@ -11,7 +11,6 @@ function PickedColor({ picked, onAdjustColor, onDeleteColor }) {
         <PickedItem
           key={k}
           index={k}
-          picked={picked}
           hwb={v}
           onAdjustColor={onAdjustColor}
           onDeleteColor={onDeleteColor}

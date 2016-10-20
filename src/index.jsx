@@ -2,30 +2,30 @@
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { hashHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import { Provider } from 'react-redux';
 import configureStore from './stores/configureStore';
 import './css/main.css';
-import Main from './main';
+import App from './layouts/App';
 
 const store = configureStore();
-const history = syncHistoryWithStore(hashHistory, store);
 const rootElement = document.querySelector('#app');
 
 function renderApp(RootComponent) {
   ReactDOM.render(
     <AppContainer>
-      <RootComponent store={store} history={history} />
+      <Provider store={store}>
+        <RootComponent />
+      </Provider>
     </AppContainer>,
     rootElement
   );
 }
 
-renderApp(Main);
+renderApp(App);
 
 /* eslint-disable global-require */
 if (module.hot) {
-  module.hot.accept('./main', () => renderApp(require('./main').default));
+  module.hot.accept('./layouts/App', () => renderApp(require('./layouts/App').default));
 }
 /* eslint-enable global-require */
 

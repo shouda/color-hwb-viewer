@@ -1,5 +1,4 @@
 import color from 'color2';
-import { hashHistory } from 'react-router';
 
 export function checkHex(text) {
   return text.match(/^#([a-fA-F0-9]{3}|[a-fA-F0-9]{6})$/);
@@ -9,12 +8,12 @@ export function getHex(hwb) {
   return color().hwb(hwb).hexString();
 }
 
-export function getHwb(hex) {
-  return color.parse(hex).hwbArray();
+export function getHexURL(picked) {
+  return picked.reduce((a, v) => a.concat(getHex(v).replace('#', '-')), '');
 }
 
-function getHexURL(picked) {
-  return picked.reduce((a, v) => a.concat(getHex(v).replace('#', '-')), '');
+export function getHwb(hex) {
+  return color.parse(hex).hwbArray();
 }
 
 function isUrlSyncPicked(picked, pathname) {
@@ -32,8 +31,4 @@ export function syncPickedWithUrl(picked, pathname) {
     newPicked = picked;
   }
   return newPicked;
-}
-
-export function pickedPushToUrl(picked) {
-  hashHistory.push((picked.length === 0) ? '/' : `/picked/${getHexURL(picked)}`);
 }

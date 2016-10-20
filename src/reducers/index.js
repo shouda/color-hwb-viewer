@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
 import hwb from './hwb';
+import location from './location';
 
 const rootReducer = combineReducers({
   hwb,
-  routing: routerReducer,
+  location,
 });
 
 export default rootReducer;

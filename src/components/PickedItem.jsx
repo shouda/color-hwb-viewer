@@ -1,13 +1,11 @@
 import React from 'react';
-import { getHex, pickedPushToUrl } from '../lib/color';
+import { getHex } from '../lib/color';
 
-function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
-  const pickedArr = picked.toJS();
+function PickedItem({ index, hwb, onAdjustColor, onDeleteColor }) {
   const hwbArr = hwb.toArray();
   const handleAdjust = () => onAdjustColor(hwbArr);
   const handleDelete = () => {
     onDeleteColor(index);
-    pickedPushToUrl(pickedArr.filter((_, i) => i !== index));
   };
   const hex = getHex(hwbArr);
   return (
@@ -42,7 +40,6 @@ function PickedItem({ index, picked, hwb, onAdjustColor, onDeleteColor }) {
 
 PickedItem.propTypes = {
   index: React.PropTypes.number.isRequired,
-  picked: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
   hwb: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
   onAdjustColor: React.PropTypes.func.isRequired,
   onDeleteColor: React.PropTypes.func.isRequired,

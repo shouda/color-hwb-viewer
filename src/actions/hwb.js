@@ -22,6 +22,8 @@ export const MINUS_BLACK = 'MINUS_BLACK';
 export const PICK_COLOR = 'PICK_COLOR';
 export const ADJUST_COLOR = 'ADJUST_COLOR';
 export const DELETE_COLOR = 'DELETE_COLOR';
+export const LOCATION_CHANGE = 'LOCATION_CHANGE';
+export const LOCATION_SYNC = 'LOCATION_SYNC';
 
 export const setOrigin = makeActionCreator(SET_ORIGIN, 'hwb');
 export const setAdjust = makeActionCreator(SET_ADJUST, 'hwb');
@@ -47,3 +49,5 @@ export function adjustColor(hwb) {
   };
 }
 export const deleteColor = makeActionCreator(DELETE_COLOR, 'index');
+export const locationChange = makeActionCreator(LOCATION_CHANGE, 'location');
+export const locationSync = makeActionCreator(LOCATION_SYNC, 'location');

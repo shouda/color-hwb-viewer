@@ -54,7 +54,6 @@ const config = {
       'redux-logger',
       'react-redux',
       'react-router',
-      'react-router-redux',
       'immutable',
       'color2',
     ],

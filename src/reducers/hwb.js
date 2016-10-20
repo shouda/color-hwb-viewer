@@ -1,5 +1,4 @@
 import { Map, List, fromJS } from 'immutable';
-import { LOCATION_CHANGE } from 'react-router-redux';
 import {
   SET_ORIGIN,
   SET_ADJUST,
@@ -13,6 +12,7 @@ import {
   MINUS_BLACK,
   PICK_COLOR,
   DELETE_COLOR,
+  LOCATION_SYNC,
  } from '../actions/hwb';
 import { syncPickedWithUrl } from '../lib/color';
 
@@ -25,9 +25,6 @@ const initialState = Map({
 
 function hwb(state = initialState, action) {
   switch (action.type) {
-    case LOCATION_CHANGE:
-      return state.setIn(['picked'],
-        fromJS(syncPickedWithUrl(state.getIn(['picked']).toJS(), action.payload.pathname)));
     case SET_ORIGIN:
       return state.setIn(['origin'], List(action.hwb));
     case SET_ADJUST:
@@ -52,6 +49,9 @@ function hwb(state = initialState, action) {
       return state.updateIn(['picked'], arr => arr.push(state.get('adjust')));
     case DELETE_COLOR:
       return state.updateIn(['picked'], arr => arr.filter((_, i) => i !== action.index));
+    case LOCATION_SYNC:
+      return state.setIn(['picked'],
+        fromJS(syncPickedWithUrl(state.getIn(['picked']).toJS(), action.location)));
     default:
       return state;
   }
