@@ -24,32 +24,45 @@ import Pick from '../components/Pick';
 import PickedColor from '../components/PickedColor';
 import HexToHwb from '../components/HexToHwb';
 
+/* eslint-env browser */
 class Hwb extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.redirect = false;
-    this.picked = [];
-    if (this.props.location.match(/^#\/picked\/\-\S+$/)
-          && this.props.location !== `#${this.getPath()}`) {
-      this.props.onLocationSync(this.props.location);
+  }
+  componentDidMount() {
+    this.setEnv();
+    if ((this.location.match(/^\/picked\/\-\S+$/) && this.location !== this.prevURL)
+         || (this.location.match(/^\/$/) && this.picked.length !== 0)) {
+      this.props.onLocationSync(this.location);
     }
   }
   componentWillUpdate(nextProps) {
-    if (nextProps.picked !== this.props.picked) {
+    this.setEnv();
+    this.picked = nextProps.picked.toJS();
+    this.newURL = this.getURL();
+    if (this.location !== this.prevURL && this.location !== this.newURL) {
+      this.props.onLocationSync(this.location);
+    }
+    if (nextProps.picked !== this.props.picked && this.location !== this.newURL) {
       this.redirect = true;
-      this.picked = nextProps.picked.toJS();
-      this.props.onLocationChange(`#${this.getPath()}`);
+      this.props.onLocationChange(this.newURL);
     }
   }
   componentDidUpdate() {
     this.redirect = false;
   }
-  getPath() {
+  getURL() {
     return (this.picked.length === 0) ? '/' : `/picked/${getHexURL(this.picked)}`;
+  }
+  setEnv() {
+    this.location = window.location.hash.replace('#', '');
+    this.picked = this.props.picked.toJS();
+    this.prevURL = this.getURL();
   }
   render() {
     return this.redirect ? (
-      <Redirect to={this.getPath()} />
+      <Redirect to={this.newURL} push />
     ) : (
       <div>
         <div className="clearfix mb2">
@@ -111,7 +124,6 @@ Hwb.propTypes = {
   onPickColor: React.PropTypes.func,
   onAdjustColor: React.PropTypes.func,
   onDeleteColor: React.PropTypes.func,
-  location: React.PropTypes.string,
   onLocationChange: React.PropTypes.func,
   onLocationSync: React.PropTypes.func,
 };
@@ -121,7 +133,6 @@ function mapStateToProps(state) {
     origin: state.hwb.get('origin'),
     adjust: state.hwb.get('adjust'),
     picked: state.hwb.get('picked'),
-    location: state.location.get('path'),
   };
 }
 
