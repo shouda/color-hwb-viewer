@@ -16,7 +16,6 @@ import {
  } from '../actions/hwb';
 import { syncPickedWithUrl } from '../lib/color';
 
-/* eslint-disable new-cap */
 const initialState = Map({
   origin: List([0, 0, 0]),
   adjust: List([0, 0, 0]),
@@ -56,6 +55,5 @@ function hwb(state = initialState, action) {
       return state;
   }
 }
-/* eslint-enable new-cap */
 
 export default hwb;

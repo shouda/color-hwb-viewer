@@ -1,7 +1,6 @@
 import React from 'react';
 import { getHex } from '../lib/color';
 
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 function HueItem({ id, origin, onSelectHue }) {
   const hex = getHex([id, 0, 0]);
   const hwb = origin.toArray();
@@ -22,7 +21,6 @@ function HueItem({ id, origin, onSelectHue }) {
     </div>
   );
 }
-/* eslint-enable jsx-a11y/no-static-element-interactions */
 
 HueItem.propTypes = {
   id: React.PropTypes.number.isRequired,

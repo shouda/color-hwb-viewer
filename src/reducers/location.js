@@ -1,7 +1,6 @@
 import { Map } from 'immutable';
 
 /* eslint-env browser */
-/* eslint-disable new-cap */
 const initialLocation = Map({
   path: window.location.hash,
 });

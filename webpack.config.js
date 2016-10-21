@@ -1,4 +1,3 @@
-/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');

@@ -1,4 +1,3 @@
-/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 import koa from 'koa';
 import serve from 'koa-static';
 import webpack from 'webpack';
