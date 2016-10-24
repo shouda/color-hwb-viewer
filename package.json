@@ -10,7 +10,6 @@
     "pro": "NODE_ENV=production babel-node server-koa.js --plugins transform-es2015-modules-commonjs",
     "new-component": "plop component",
     "new-stateless": "plop stateless",
-    "lock": "npm shrinkwrap",
     "serve": "npm run deploy; npm run pro"
   },
   "repository": {
