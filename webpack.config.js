@@ -10,11 +10,29 @@ const entryApp = [
 
 const webpackPlugins = [
   new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV) }),
-  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.NamedModulesPlugin(),
   new webpack.HotModuleReplacementPlugin(),
-  new webpack.optimize.CommonsChunkPlugin(
-    'vendors', isProd ? 'vendors.[hash:8].js' : 'vendors.js'
-  ),
+  new webpack.LoaderOptionsPlugin({
+    debug: !isProd,
+    options: {
+      postcss: [
+        /* eslint-disable global-require */
+        require('postcss-import')({ addDependencyTo: webpack }),
+        require('postcss-url')(),
+        require('postcss-cssnext')(),
+        require('postcss-browser-reporter')({
+          sourcemap: true,
+          browsers: ['last 2 versions', 'android 4', 'opera 12'],
+        }),
+        require('postcss-reporter')({ clearMessages: true }),
+        /* eslint-enable global-require */
+      ],
+    },
+  }),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendors',
+    filename: isProd ? 'vendors.[hash:8].js' : 'vendors.js',
+  }),
 ];
 
 if (isProd) {
@@ -22,9 +40,12 @@ if (isProd) {
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
       compress: { warnings: false },
       mangle: false,
-      output: { comments: false },
+      beautify: false,
+      comments: false,
+      sourceMap: true,
     }),
     function () { // eslint-disable-line func-names
       this.plugin('done', (stats) => {
@@ -41,8 +62,7 @@ if (isProd) {
 }
 
 const config = {
-  debug: !isProd,
-  devtool: !isProd ? 'eval' : 'source-map',
+  devtool: !isProd ? 'eval' : 'cheap-module-source-map',
   entry: {
     app: entryApp,
     vendors: [
@@ -64,42 +84,35 @@ const config = {
   },
   resolve: {
     alias: {},
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   module: {
     noParse: [],
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
-        loader: 'style!css!postcss',
+        use: [
+          { loader: 'style' },
+          { loader: 'css', options: { importLoaders: 1 } },
+          { loader: 'postcss' },
+        ],
       },
       {
         test: /\.(jsx|js)$/,
-        exclude: [path.resolve(__dirname, 'node_modules')],
         include: [path.resolve(__dirname, 'src')],
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'stage-0', 'react'],
-          plugins: ['react-hot-loader/babel'],
-        },
+        use: [
+          {
+            loader: 'babel',
+            options: {
+              presets: [['es2015', { modules: false }], 'stage-0', 'react'],
+              plugins: ['react-hot-loader/babel'],
+            },
+          },
+        ],
       },
     ],
   },
-  /* eslint-disable global-require */
-  postcss: () => (
-    [
-      require('postcss-import')({ addDependencyTo: webpack }),
-      require('postcss-url')(),
-      require('postcss-cssnext')(),
-      // add your 'plugins' here
-      // ...
-      // and if you want to compress,
-      // just use css-loader option that already use cssnano under the hood
-      require('postcss-browser-reporter')(),
-      require('postcss-reporter')(),
-    ]
-  ),
-  /* eslint-enable global-require */
   plugins: webpackPlugins,
 };
 

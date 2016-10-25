@@ -5,7 +5,7 @@
   "main": "''",
   "scripts": {
     "build": "NODE_ENV=development webpack --config webpack.config.js --profile --progress --colors",
-    "deploy": "NODE_ENV=production webpack --config webpack.config.js; script/chunkhash.js",
+    "deploy": "NODE_ENV=production webpack -p --config webpack.config.js --optimize-minimize; script/chunkhash.js",
     "dev": "NODE_ENV=development babel-node server-koa.js --plugins transform-es2015-modules-commonjs",
     "pro": "NODE_ENV=production babel-node server-koa.js --plugins transform-es2015-modules-commonjs",
     "new-component": "plop component",
@@ -69,12 +69,12 @@
     "postcss": "~5.2.5",
     "postcss-browser-reporter": "~0.5.0",
     "postcss-cssnext": "~2.8.0",
-    "postcss-import": "~8.1.2",
+    "postcss-import": "8.1.0",
     "postcss-loader": "~1.0.0",
     "postcss-reporter": "~1.4.1",
     "postcss-url": "~5.1.2",
     "react-hot-loader": "^3.0.0-beta.6",
     "style-loader": "~0.13.1",
-    "webpack": "~1.13.2"
+    "webpack": "2.1.0-beta.25"
   }
 }
