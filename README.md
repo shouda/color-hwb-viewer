@@ -15,6 +15,12 @@
 * [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 * [plop: Micro-generator framework](https://github.com/amwmedia/plop)
 
+### Test
+
+* [ava](https://github.com/avajs/ava)
+* [jsdom](https://github.com/tmpvar/jsdom)
+* [Enzyme](http://airbnb.io/enzyme/)
+
 ### Starter Kits
 
 * [anorudes/redux-easy-boilerplate](https://github.com/anorudes/redux-easy-boilerplate)
