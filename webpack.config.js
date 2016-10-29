@@ -85,7 +85,7 @@ const config = {
   resolve: {
     alias: {},
     extensions: ['.js', '.jsx'],
-    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'lib'), 'node_modules'],
   },
   module: {
     noParse: [],
@@ -100,11 +100,12 @@ const config = {
       },
       {
         test: /\.(jsx|js)$/,
-        include: [path.resolve(__dirname, 'src')],
+        include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'lib')],
         use: [
           {
             loader: 'babel',
             options: {
+              babelrc: false,
               presets: [['es2015', { modules: false }], 'stage-0', 'react'],
               plugins: ['react-hot-loader/babel'],
             },
