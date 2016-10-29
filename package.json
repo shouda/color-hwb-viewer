@@ -85,13 +85,7 @@
     "webpack": "2.1.0-beta.25"
   },
   "ava": {
-    "babel": {
-      "presets": [
-        "es2015",
-        "stage-3",
-        "react"
-      ]
-    },
+    "babel": "inherit",
     "require": [
       "babel-register",
       "ignore-styles",
