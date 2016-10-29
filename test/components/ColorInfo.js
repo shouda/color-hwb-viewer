@@ -8,5 +8,6 @@ import ColorInfo from '../../src/components/ColorInfo';
 test('show color info', (t) => {
   const hwb = List([180, 5, 10]);
   const wrapper = shallow(<ColorInfo hwb={hwb} />);
-  t.is(wrapper.containsMatchingElement(<div className="col col-6">#0DE6E5</div>), true);
+  t.is(wrapper.containsMatchingElement(<div className="col col-6">#0DE6E5</div>), true,
+    'give hwb(180, 5, 10) should return #0DE6E5 hex value');
 });
