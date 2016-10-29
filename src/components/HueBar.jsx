@@ -1,5 +1,5 @@
 import React from 'react';
-import range from '../lib/range';
+import range from '../../lib/range';
 
 import HueItem from '../components/HueItem';
 
