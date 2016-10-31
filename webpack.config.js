@@ -106,7 +106,7 @@ const config = {
             loader: 'babel',
             options: {
               babelrc: false,
-              presets: [['es2015', { modules: false }], 'stage-0', 'react'],
+              presets: [['es2015', { modules: false }], 'react'],
               plugins: ['react-hot-loader/babel'],
             },
           },
