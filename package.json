@@ -9,6 +9,7 @@
     "dev": "NODE_ENV=development node server-koa.js",
     "pro": "NODE_ENV=production node server-koa.js",
     "test": "NODE_ENV=test ava",
+    "test:lib": "NODE_ENV=test ava --source lib/*-test.js",
     "new-component": "plop component",
     "new-stateless": "plop stateless",
     "serve": "npm run deploy; npm run pro"
@@ -88,7 +89,10 @@
     "webpack": "2.1.0-beta.25"
   },
   "ava": {
-    "babel": "inherit",
+    "babel": {
+      "presets": ["react"],
+      "plugins": ["transform-es2015-modules-commonjs"]
+    },
     "require": [
       "babel-register",
       "ignore-styles",
