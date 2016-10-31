@@ -71,6 +71,7 @@
     "ignore-styles": "^5.0.1",
     "jsdom": "^9.8.3",
     "koa": "^2.0.0",
+    "koa-convert": "^1.2.0",
     "koa-static": "^3.0.0",
     "koa-webpack-dev-middleware": "~1.2.2",
     "koa-webpack-hot-middleware": "~1.0.3",

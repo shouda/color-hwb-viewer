@@ -4,6 +4,7 @@
 
 const Koa = require('koa');
 const serve = require('koa-static');
+const convert = require('koa-convert');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('koa-webpack-dev-middleware');
 const webpackHotMiddleware = require('koa-webpack-hot-middleware');
@@ -21,11 +22,11 @@ app.use(async (ctx, next) => {
 let viewDir;
 if (process.env.NODE_ENV !== 'production') {
   const compiler = webpack(webpackConfig);
-  app.use(webpackDevMiddleware(compiler, {
+  app.use(convert(webpackDevMiddleware(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath,
-  }));
-  app.use(webpackHotMiddleware(compiler));
+  })));
+  app.use(convert(webpackHotMiddleware(compiler)));
 
   viewDir = './src';
 } else {
