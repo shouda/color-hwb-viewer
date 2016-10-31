@@ -1,9 +1,13 @@
-import koa from 'koa';
-import serve from 'koa-static';
-import webpack from 'webpack';
-import webpackDevMiddleware from 'koa-webpack-dev-middleware';
-import webpackHotMiddleware from 'koa-webpack-hot-middleware';
-import webpackConfig from './webpack.config';
+/* eslint-disable strict */
+
+'use strict';
+
+const koa = require('koa');
+const serve = require('koa-static');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('koa-webpack-dev-middleware');
+const webpackHotMiddleware = require('koa-webpack-hot-middleware');
+const webpackConfig = require('./webpack.config');
 
 const app = koa();
 

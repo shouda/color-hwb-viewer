@@ -6,8 +6,8 @@
   "scripts": {
     "build": "NODE_ENV=development webpack --config webpack.config.js --profile --progress --colors",
     "deploy": "NODE_ENV=production webpack -p --config webpack.config.js --optimize-minimize; script/chunkhash.js",
-    "dev": "NODE_ENV=development babel-node server-koa.js",
-    "pro": "NODE_ENV=production babel-node server-koa.js",
+    "dev": "NODE_ENV=development node server-koa.js",
+    "pro": "NODE_ENV=production node server-koa.js",
     "test": "NODE_ENV=test ava",
     "new-component": "plop component",
     "new-stateless": "plop stateless",
