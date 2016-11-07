@@ -10,13 +10,13 @@ const logger = createLogger({
   /* eslint-enable no-unused-vars */
   stateTransformer: (state) => {
     const newState = {};
-    for (const i of Object.keys(state)) {
-      if (Iterable.isIterable(state[i])) {
-        newState[i] = state[i].toJS();
+    Object.keys(state).forEach((key) => {
+      if (Iterable.isIterable(state[key])) {
+        newState[key] = state[key].toJS();
       } else {
-        newState[i] = state[i];
+        newState[key] = state[key];
       }
-    }
+    });
     return newState;
   },
 });
@@ -27,8 +27,8 @@ const configureStore = (initialState) => {
     initialState,
     applyMiddleware(
       thunk,
-      logger
-    )
+      logger,
+    ),
   );
 
   if (module.hot) {
