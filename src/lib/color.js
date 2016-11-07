@@ -24,7 +24,7 @@ function isUrlSyncPicked(picked, pathname) {
 
 export function syncPickedWithUrl(picked, pathname) {
   let newPicked = [];
-  if ((picked.length === 0 && pathname.match(/^\/picked\/\-\S+$/))
+  if ((picked.length === 0 && pathname.match(/^\/picked\/-\S+$/))
     || !isUrlSyncPicked(picked, pathname)) {
     newPicked = pathname.split('-').filter(v => checkHex(`#${v}`)).map(v => getHwb(`#${v}`));
   } else {

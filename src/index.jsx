@@ -16,7 +16,7 @@ function renderApp(RootComponent) {
         <RootComponent />
       </Provider>
     </AppContainer>,
-    rootElement
+    rootElement,
   );
 }
 

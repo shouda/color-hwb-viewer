@@ -32,7 +32,7 @@ class Hwb extends Component {
   }
   componentDidMount() {
     this.setEnv();
-    if ((this.location.match(/^\/picked\/\-\S+$/) && this.location !== this.prevURL)
+    if ((this.location.match(/^\/picked\/-\S+$/) && this.location !== this.prevURL)
          || (this.location.match(/^\/$/) && this.picked.length !== 0)) {
       this.props.onLocationSync(this.location);
     }
@@ -64,48 +64,48 @@ class Hwb extends Component {
     return this.redirect ? (
       <Redirect to={this.newURL} push />
     ) : (
-      <div>
-        <div className="clearfix mb2">
-          <HueBar origin={this.props.origin} onSelectHue={this.props.onSelectHue} />
+    <div>
+      <div className="clearfix mb2">
+        <HueBar origin={this.props.origin} onSelectHue={this.props.onSelectHue} />
+      </div>
+      <HexToHwb onAdjustColor={this.props.onAdjustColor} />
+      <hr />
+      <div className="clearfix mt2">
+        <div className="col col-5">
+          <ColorInfo hwb={this.props.origin} />
         </div>
-        <HexToHwb onAdjustColor={this.props.onAdjustColor} />
-        <hr />
-        <div className="clearfix mt2">
-          <div className="col col-5">
-            <ColorInfo hwb={this.props.origin} />
-          </div>
-          <div className="col col-2">
-            <Adjuster
-              adjust={this.props.adjust}
-              onAddHue={this.props.onAddHue}
-              onMinusHue={this.props.onMinusHue}
-              onAddWhite={this.props.onAddWhite}
-              onMinusWhite={this.props.onMinusWhite}
-              onAddBlack={this.props.onAddBlack}
-              onMinusBlack={this.props.onMinusBlack}
-            />
-          </div>
-          <div className="col col-5">
-            <ColorInfo hwb={this.props.adjust} />
-            <Pick
-              onPickColor={this.props.onPickColor}
-            />
-          </div>
+        <div className="col col-2">
+          <Adjuster
+            adjust={this.props.adjust}
+            onAddHue={this.props.onAddHue}
+            onMinusHue={this.props.onMinusHue}
+            onAddWhite={this.props.onAddWhite}
+            onMinusWhite={this.props.onMinusWhite}
+            onAddBlack={this.props.onAddBlack}
+            onMinusBlack={this.props.onMinusBlack}
+          />
         </div>
-        <PickedColor
-          picked={this.props.picked}
-          onAdjustColor={this.props.onAdjustColor}
-          onDeleteColor={this.props.onDeleteColor}
-        />
-        <div className="mt4 mb1 h6 center">
-          <span>
-            source code:&nbsp;
-            <a href="https://github.com/shouda/color-hwb-viewer">
-              https://github.com/shouda/color-hwb-viewer
-            </a>
-          </span>
+        <div className="col col-5">
+          <ColorInfo hwb={this.props.adjust} />
+          <Pick
+            onPickColor={this.props.onPickColor}
+          />
         </div>
       </div>
+      <PickedColor
+        picked={this.props.picked}
+        onAdjustColor={this.props.onAdjustColor}
+        onDeleteColor={this.props.onDeleteColor}
+      />
+      <div className="mt4 mb1 h6 center">
+        <span>
+          source code:&nbsp;
+          <a href="https://github.com/shouda/color-hwb-viewer">
+            https://github.com/shouda/color-hwb-viewer
+          </a>
+        </span>
+      </div>
+    </div>
     );
   }
 }
@@ -155,5 +155,5 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Hwb);

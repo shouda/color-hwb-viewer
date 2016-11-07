@@ -49,13 +49,10 @@ if (isProd) {
     }),
     function () { // eslint-disable-line func-names
       this.plugin('done', (stats) => {
-        fs.writeFileSync(
-          path.join(__dirname, 'dist', 'stats.json'),
-          JSON.stringify(stats.toJson())
-        );
+        fs.writeFileSync(path.join(__dirname, 'dist', 'stats.json'),
+          JSON.stringify(stats.toJson()));
       });
-    }
-  );
+    });
 } else {
   entryApp.unshift('webpack-hot-middleware/client');
   entryApp.unshift('react-hot-loader/patch');

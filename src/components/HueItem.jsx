@@ -9,12 +9,13 @@ function HueItem({ id, origin, onSelectHue }) {
   return (
     <div
       className="left"
-      style={{ width: '0.2777%',
-               height: '1.5rem',
-               fontSize: '1px',
-               textAlign: 'center',
-               backgroundColor: hex,
-            }}
+      style={{
+        width: '0.2777%',
+        height: '1.5rem',
+        fontSize: '1px',
+        textAlign: 'center',
+        backgroundColor: hex,
+      }}
       onClick={handleClick}
     >
       <div style={{ marginTop: '-5px' }}>{str}</div>
