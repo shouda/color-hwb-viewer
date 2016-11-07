@@ -4,8 +4,8 @@
     "browser"
   ],
   "loadEagerly": [
-    "/Users/shouda/Node/color-hwb-viewer/src/**/*.js",
-    "/Users/shouda/Node/color-hwb-viewer/src/**/*.jsx"
+    "src/**/*.js",
+    "src/**/*.jsx"
   ],
   "dontLoad": [
   ],
