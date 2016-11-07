@@ -1,7 +1,11 @@
 module.exports = {
   extends: [
     'airbnb',
-    require.resolve('./eslint-rules.js'),
+    // require.resolve('./other-rules.js'),
   ],
-  rules: {},
+  rules: {
+    'new-cap': 0,
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'jsx-a11y/no-static-element-interactions': 0,
+  },
 };
