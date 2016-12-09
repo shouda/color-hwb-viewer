@@ -85,14 +85,13 @@ const config = {
     modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'lib'), 'node_modules'],
   },
   module: {
-    noParse: [],
     rules: [
       {
         test: /\.css$/,
         use: [
-          { loader: 'style' },
-          { loader: 'css', options: { importLoaders: 1 } },
-          { loader: 'postcss' },
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          { loader: 'postcss-loader' },
         ],
       },
       {
@@ -100,7 +99,7 @@ const config = {
         include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'lib')],
         use: [
           {
-            loader: 'babel',
+            loader: 'babel-loader',
             options: {
               babelrc: false,
               presets: [['es2015', { modules: false }], 'react'],
