@@ -59,6 +59,7 @@ if (isProd) {
 
 const config = {
   devtool: !isProd ? 'eval' : 'cheap-module-source-map',
+  performance: { hints: isProd },
   entry: {
     app: entryApp,
     vendors: [
