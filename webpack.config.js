@@ -37,7 +37,7 @@ const webpackPlugins = [
 
 if (isProd) {
   webpackPlugins.push(
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
       compress: { warnings: false },
