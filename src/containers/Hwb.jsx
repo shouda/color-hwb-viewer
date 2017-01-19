@@ -111,21 +111,21 @@ class Hwb extends Component {
 }
 
 Hwb.propTypes = {
-  origin: React.PropTypes.objectOf(React.PropTypes.any),
-  adjust: React.PropTypes.objectOf(React.PropTypes.any),
-  picked: React.PropTypes.objectOf(React.PropTypes.any),
-  onSelectHue: React.PropTypes.func,
-  onAddHue: React.PropTypes.func,
-  onMinusHue: React.PropTypes.func,
-  onAddWhite: React.PropTypes.func,
-  onMinusWhite: React.PropTypes.func,
-  onAddBlack: React.PropTypes.func,
-  onMinusBlack: React.PropTypes.func,
-  onPickColor: React.PropTypes.func,
-  onAdjustColor: React.PropTypes.func,
-  onDeleteColor: React.PropTypes.func,
-  onLocationChange: React.PropTypes.func,
-  onLocationSync: React.PropTypes.func,
+  origin: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+  adjust: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+  picked: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+  onSelectHue: React.PropTypes.func.isRequired,
+  onAddHue: React.PropTypes.func.isRequired,
+  onMinusHue: React.PropTypes.func.isRequired,
+  onAddWhite: React.PropTypes.func.isRequired,
+  onMinusWhite: React.PropTypes.func.isRequired,
+  onAddBlack: React.PropTypes.func.isRequired,
+  onMinusBlack: React.PropTypes.func.isRequired,
+  onPickColor: React.PropTypes.func.isRequired,
+  onAdjustColor: React.PropTypes.func.isRequired,
+  onDeleteColor: React.PropTypes.func.isRequired,
+  onLocationChange: React.PropTypes.func.isRequired,
+  onLocationSync: React.PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
