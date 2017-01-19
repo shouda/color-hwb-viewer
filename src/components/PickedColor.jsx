@@ -3,15 +3,15 @@ import React from 'react';
 import PickedItem from './PickedItem';
 
 function PickedColor({ picked, onAdjustColor, onDeleteColor }) {
-  const pickedArr = picked.toArray();
+  const pickedArr = picked.toArray().map((v, k) => ({ id: k, hwb: v }));
   return (
     <div className="my2 clearfix center">
       <hr />
-      {pickedArr.map((v, k) => (
+      {pickedArr.map(item => (
         <PickedItem
-          key={k}
-          index={k}
-          hwb={v}
+          key={item.id}
+          index={item.id}
+          hwb={item.hwb}
           onAdjustColor={onAdjustColor}
           onDeleteColor={onDeleteColor}
         />
