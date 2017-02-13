@@ -100,5 +100,26 @@
       "ignore-styles",
       "./test/helpers/setup.js"
     ]
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          "react"
+        ],
+        "plugins": [
+          "transform-es2015-modules-commonjs"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb"
+    ],
+    "rules": {
+      "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+      "jsx-a11y/no-static-element-interactions": 0
+    }
   }
 }
