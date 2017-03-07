@@ -6,8 +6,8 @@
   "scripts": {
     "build": "NODE_ENV=development webpack --config webpack.config.js --profile --progress --colors",
     "deploy": "NODE_ENV=production webpack -p --config webpack.config.js --optimize-minimize; script/chunkhash.js",
-    "dev": "NODE_ENV=development node --harmony_async_await server-koa.js",
-    "pro": "NODE_ENV=production node --harmony_async_await server-koa.js",
+    "dev": "NODE_ENV=development node server-koa.js",
+    "pro": "NODE_ENV=production node server-koa.js",
     "test": "NODE_ENV=test ava",
     "test:lib": "NODE_ENV=test ava --source lib/*-test.js",
     "new-component": "plop component",
@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/shouda/color-hwb-viewer#readme",
   "engines": {
-    "node": ">=7.0.0"
+    "node": ">=7.6.0"
   },
   "dependencies": {
     "basscss": "~8.0.3",
